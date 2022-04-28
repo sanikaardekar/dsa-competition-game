@@ -34,11 +34,11 @@ console.log("redux: " + name, password);
     //   token: data.data.data.authUser.token,
     // };
 
-    console.log(data);
+    console.log(data.statusText);
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
-      payload: data,
+      payload: data.statusText,
     });
 
     // localStorage.setItem(
