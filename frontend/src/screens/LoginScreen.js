@@ -32,6 +32,27 @@ export default function LoginScreen() {
       dispatch(login(name, password));
     }
   };
+  const useStyles = makeStyles(() => ({
+    outerGrid: {
+      width: '150vw',
+      height: '100vh',
+      backgroundImage: `url(${background})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      overflow: 'hidden',
+    },
+    card: {
+      background: 'rgba( 84, 78, 78, 0.35 )!important',
+      boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )!important',
+      backdropFilter: 'blur( 3.5px )!important',
+      border: '1px solid rgba( 255, 255, 255, 0.18 )!important',
+      width: '600px',
+      height: '400px',
+      backgroundColor: 'none!important',
+      // boxShadow: "none",
+    },
+  }));  
 
   const classes = useStyles();
   return (
@@ -198,25 +219,3 @@ export default function LoginScreen() {
   );
 }
 
-const useStyles = makeStyles(() => ({
-  outerGrid: {
-    width: '150vw',
-    height: '100vh',
-    backgroundImage: `url(${background})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    overflow: 'hidden',
-  },
-  card: {
-    background: 'rgba( 84, 78, 78, 0.35 )!important',
-    boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )!important',
-    backdropFilter: 'blur( 3.5px )!important',
-
-    border: '1px solid rgba( 255, 255, 255, 0.18 )!important',
-    width: '600px',
-    height: '400px',
-    backgroundColor: 'none!important',
-    // boxShadow: "none",
-  },
-}));

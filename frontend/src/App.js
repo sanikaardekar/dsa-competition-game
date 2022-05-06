@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen";
+import LeaderBoard from "./screens/Leaderboard";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/login" element={<><LoginScreen/></>}/>
+          <Route exact path="/leaderboard" element={<><LeaderBoard/></>}/>
         </Routes>
       </Router>
     </div>
