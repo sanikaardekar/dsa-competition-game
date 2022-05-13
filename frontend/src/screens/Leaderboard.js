@@ -1,6 +1,7 @@
+import React from 'react';
 import { Grid, Typography, Card, Avatar } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import background from '../images/background.jpg';
+import Leaderboard from '../images/leaderboard.png';
 
 export default function LeaderBoard() {
   const Demo = [
@@ -29,7 +30,7 @@ export default function LeaderBoard() {
     outerGrid: {
       width: '150vw',
       height: '100vh',
-      backgroundImage: `url(${background})`,
+      backgroundImage: `url(${Leaderboard})`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
@@ -60,96 +61,94 @@ export default function LeaderBoard() {
 
   const classes = useStyles();
   return (
-    <>
-      <Grid
-        container
-        display="flex"
-        justifyContent="center"
-        alignItems="flex-start"
-        className={classes.outerGrid}
-      >
-        <div>
-          <Grid
-            item
-            display="flex"
-            flexDirection="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            gap={55}
+    <Grid
+      container
+      display="flex"
+      justifyContent="center"
+      alignItems="flex-start"
+      className={classes.outerGrid}
+    >
+      <div>
+        <Grid
+          item
+          display="flex"
+          flexDirection="row"
+          justifyContent="flex-start"
+          alignItems="center"
+          gap={55}
+        >
+          <Typography
+            style={{
+              fontSize: '48px',
+              lineHeight: '72px',
+              color: 'white',
+            }}
           >
-            <Typography
-              style={{
-                fontSize: '48px',
-                lineHeight: '72px',
-                color: 'white',
-              }}
-            >
-              Leaderboard
-            </Typography>
-            <Typography
-              style={{
-                fontSize: '30px',
-                lineHeight: '72px',
-                color: 'white',
-              }}
-            >
-              Global
-            </Typography>
-          </Grid>
-          <Card sx={{ marginLeft: '20px' }} className={classes.card}>
-            {Demo.map((card, index) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  lg={12}
-                  key={index}
+            Leaderboard
+          </Typography>
+          <Typography
+            style={{
+              fontSize: '30px',
+              lineHeight: '72px',
+              color: 'white',
+            }}
+          >
+            Global
+          </Typography>
+        </Grid>
+        <Card sx={{ marginLeft: '20px' }} className={classes.card}>
+          {Demo.map((card) => {
+            return (
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                key={card.id}
+              >
+                <Card
+                  sx={{
+                    display: 'flex',
+                    width: '75vw',
+                    height: '13vh',
+                  }}
+                  className={classes.nameCard}
                 >
-                  <Card
-                    sx={{
-                      display: 'flex',
-                      width: '75vw',
-                      height: '13vh',
-                    }}
-                    className={classes.nameCard}
+                  <Grid
+                    item
+                    display="flex"
+                    flexDirection="row"
+                    justifyContent="flex-start"
+                    alignItems="center"
+                    gap={2}
                   >
+                    <Avatar
+                      alt="Remy Sharp"
+                      // src=
+                      sx={{
+                        width: 49,
+                        height: 49,
+                        marginLeft: '10px',
+                      }}
+                    />
                     <Grid
                       item
                       display="flex"
-                      flexDirection="row"
+                      flexDirection="column"
                       justifyContent="flex-start"
-                      alignItems="center"
-                      gap={2}
+                      alignItems="flex-start"
                     >
-                      <Avatar
-                        alt="Remy Sharp"
-                        // src=
-                        sx={{
-                          width: 49,
-                          height: 49,
-                          marginLeft: '10px',
-                        }}
-                      />
-                      <Grid
-                        item
-                        display="flex"
-                        flexDirection="column"
-                        justifyContent="flex-start"
-                        alignItems="flex-start"
-                      >
-                        <Typography>{card.name}</Typography>
-                        <Typography>{card.number}</Typography>
-                      </Grid>
+                      <Typography>{card.name}</Typography>
+                      <Typography>{card.number}</Typography>
                     </Grid>
-                  </Card>
-                </Grid>
-              );
-            })}
-          </Card>
-        </div>
-      </Grid>
-    </>
+                  </Grid>
+                </Card>
+              </Grid>
+            );
+          })}
+        </Card>
+      </div>
+    </Grid>
   );
 }
